@@ -3,11 +3,9 @@ package main
 import (
 	"net/http"
 
-	"github.com/thomblweed/thomblweed-htmx/routes"
+	router "github.com/thomblweed/thomblweed-htmx/router"
 )
 
 func main() {
-	//	router.Use(middleware.Logger)
-
-	http.ListenAndServe(":3000", routes.Root())
+	http.ListenAndServe(":3000", router.Get())
 }

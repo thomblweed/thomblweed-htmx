@@ -1,4 +1,4 @@
-package routes
+package router
 
 import (
 	"net/http"
@@ -6,7 +6,7 @@ import (
 	"github.com/go-chi/chi"
 )
 
-func Root() chi.Router {
+func Get() chi.Router {
 	router := chi.NewRouter()
 	router.Get("/", func(w http.ResponseWriter, request *http.Request) {
 		w.Write([]byte("welcome"))
