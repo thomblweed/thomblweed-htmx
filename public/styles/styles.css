@@ -1,0 +1,164 @@
+:root {
+  --clr-primary: hsl(322, 46%, 70%);
+  --clr-secondary: hsl(199, 49%, 55%);
+
+  --clr-alternate: hsl(323, 22%, 47%);
+  --clr-grey: hsl(208, 88%, 83%);
+  --clr-bright: hsl(180, 100%, 97%);
+  --clr-dark: hsl(237, 43%, 10%);
+  --clr-dark-red: hsl(288, 43%, 9%);
+
+  --ff-primary: 'Roboto Mono', 'Helvetica', 'Arial', 'sans-serif';
+  --ff-body: var(--ff-primary);
+  --ff-heading: var(--ff-primary);
+
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  --fs-300: 0.775rem;
+  --fs-400: 1rem;
+  --fs-450: 1.125rem;
+  --fs-500: 1.375rem;
+  --fs-600: 1.875rem;
+  --fs-700: 2.5rem;
+  --fs-800: 3rem;
+  --fs-900: 3.5rem;
+
+  --fs-body: var(--fs-400);
+  --fs-primary-heading: var(--fs-600);
+  --fs-secondary-heading: var(--fs-500);
+  --fs-third-heading: var(--fs-450);
+  --fs-nav: var(--fs-500);
+  --fs-button: var(--fs-400);
+
+  --spacing-100: 0.375rem;
+  --spacing-200: 0.5rem;
+  --spacing-300: 1rem;
+  --spacing-400: 1.5rem;
+  --spacing-500: 2rem;
+  --spacing-600: 3rem;
+  --spacing-700: 4rem;
+  --spacing-800: 5rem;
+
+  --transition-duration: 0.3s;
+
+  --border-radius: var(--spacing-200);
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --fs-body: var(--fs-450);
+    --fs-primary-heading: var(--fs-700);
+    --fs-secondary-heading: var(--fs-600);
+    --fs-third-heading: var(--fs-500);
+    --fs-button: var(--fs-450);
+
+    --fs-nav: var(--fs-300);
+  }
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-body);
+  color: var(--clr-grey);
+  background-color: var(--clr-dark);
+
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+ul,
+li {
+  font-size: var(--fs-body);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-transform: lowercase;
+}
+
+h2 {
+  color: var(--clr-primary);
+  font-size: var(--fs-secondary-heading);
+  margin-bottom: var(--spacing-300);
+}
+
+h3 {
+  color: var(--clr-secondary);
+  font-size: var(--fs-third-heading);
+  margin-bottom: var(--spacing-200);
+}
+
+a {
+  transition: all var(--transition-duration) ease-out;
+}
+
+a:hover {
+  color: var(--clr-primary);
+  text-shadow: 0 0 8px var(--clr-grey);
+}
+
+/* debug */
+/* * {
+  outline: 1px solid red;
+} */
+
+/* Utility classes */
+
+.container {
+  --max-width: 48rem;
+  --spacing-size: 0.75rem;
+
+  width: min(var(--max-width), 100% - (var(--spacing-size) * 2));
+  margin-inline: auto;
+}
+
+@media (min-width: 48rem) {
+  .container {
+    --max-width: 87.5rem;
+    --spacing-size: 1.5rem;
+  }
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.text-primary {
+  color: var(--clr-primary);
+}
+
+.text-alternate {
+  color: var(--clr-alternate);
+}
+
+.text-secondary {
+  color: var(--clr-secondary);
+}
+
+.text-large {
+  font-size: var(--fs-primary-heading);
+}
+
+.text-medium {
+  font-size: var(--fs-secondary-heading);
+}
+
+.text-normal {
+  font-size: var(--fs-400);
+}
+
+.text-small {
+  font-size: var(--fs-300);
+}

@@ -1,0 +1,38 @@
+package layouts 
+
+import (
+	components "github.com/thomblweed/thomblweed-htmx/components"
+	"path/filepath"
+)
+
+type Stylesheet struct {
+	filename string
+	path     string
+}
+
+templ stylesheets(stylesheets []Stylesheet) {
+	for _, stylesheet := range stylesheets {
+		<link rel="stylesheet" href={ filepath.Join("static", stylesheet.path, stylesheet.filename) }/>
+	}
+}
+
+templ document(config []Stylesheet) {
+	<html lang="en">
+		<head>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, minimum-scale=1"/>
+			<link rel="icon" type="image/x-icon" href="static/favicon/favicon.ico"/>
+			@stylesheets(config)
+			<title>thomas newman</title>
+		</head>
+		<body>
+			{ children... }
+		</body>
+	</html>
+}
+
+templ MainLayout() {
+	@document([]Stylesheet{{path:"styles", filename: "reset.css"}, {path:"styles", filename: "styles.css"}, {path:"styles", filename: "font.css"}}) {
+		@components.Footer("Thomas Newman")
+	}
+}
