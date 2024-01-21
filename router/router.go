@@ -3,14 +3,15 @@ package router
 import (
 	"net/http"
 
-	"github.com/go-chi/chi"
+	"github.com/a-h/templ"
+	"github.com/go-chi/chi/v5"
+	"github.com/thomblweed/thomblweed-htmx/views"
 )
 
-func Get() chi.Router {
+func Home() chi.Router {
 	router := chi.NewRouter()
-	router.Get("/", func(w http.ResponseWriter, request *http.Request) {
-		w.Write([]byte("welcome"))
-	})
+	router.Handle("/static/*", http.StripPrefix("/static", http.FileServer(http.Dir("./public"))))
+	router.Get("/", templ.Handler(views.Home()).ServeHTTP)
 
 	return router
 }

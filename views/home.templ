@@ -1,0 +1,25 @@
+package views
+
+import (
+	components "github.com/thomblweed/thomblweed-htmx/components"
+)
+
+templ document() {
+	<html lang="en">
+		<head>
+			<meta charset="utf-8"/>
+			<meta name="viewport" content="width=device-width, minimum-scale=1"/>
+			<link rel="stylesheet" href="/static/test.css"/>
+			<title>thomas newman</title>
+		</head>
+		<body>
+			{ children... }
+		</body>
+	</html>
+}
+
+templ Home() {
+	@document() {
+		@components.Footer("Thomas Newman")
+	}
+}

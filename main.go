@@ -7,5 +7,5 @@ import (
 )
 
 func main() {
-	http.ListenAndServe(":3000", router.Get())
+	http.ListenAndServe(":3000", router.Home())
 }
