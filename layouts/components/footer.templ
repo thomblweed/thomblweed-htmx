@@ -1,0 +1,17 @@
+package components
+
+import (
+	"time"
+	"fmt"
+)
+
+templ Footer(footerText string) {
+	<footer class="footer">
+		<div class="container">
+			<p class="text-normal text-primary">{ footerText }</p>
+			<p class="text-small text-secondary">
+				Copyright &copy; { fmt.Sprint(time.Time.Year(time.Now())) }
+			</p>
+		</div>
+	</footer>
+}

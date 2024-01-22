@@ -1,0 +1,24 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-300);
+  margin-bottom: var(--spacing-300);
+}
+
+.nav-link {
+  text-decoration: inherit;
+}
+
+.nav-link-active {
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+}
+
+.text-logo {
+  line-height: 1;
+}
+
+.sub-logo-text {
+  line-height: 1.2;
+  padding-top: var(--spacing-100);
+}
