@@ -9,10 +9,35 @@ templ logo() {
 	</div>
 }
 
+type NavigationConfig struct {
+	value string
+	route string
+}
+
+templ navigation(config []NavigationConfig) {
+	<nav aria-label="primary">
+		<ul class="navigation-list">
+			for _, item := range config {
+				<li class="navigation-item" hx-boost="true" hx-target="main">
+					<a href={ templ.URL(item.route) } class="nav-link">
+						{ item.value }
+					</a>
+				</li>
+			}
+		</ul>
+	</nav>
+}
+
+var navigationConfig = []NavigationConfig{
+	{route: "/", value: "home"},
+	{route: "/blogs", value: "blogs"},
+}
+
 templ Header() {
 	<header>
 		<div class="header-container container">
 			@logo()
+			@navigation(navigationConfig)
 		</div>
 	</header>
 }

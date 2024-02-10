@@ -17,22 +17,27 @@ templ stylesheets(stylesheets []Stylesheet) {
 }
 
 templ document(config []Stylesheet) {
+	<!DOCTYPE html>
 	<html lang="en">
 		<head>
 			<meta charset="utf-8"/>
 			<meta name="viewport" content="width=device-width, minimum-scale=1"/>
+			<meta name="description" content="thoms newman, a web developer and frontend software engineer"/>
 			<link rel="icon" type="image/x-icon" href="static/favicon/favicon.ico"/>
+			<link rel="preload" type="font/woff2" href="static/fonts/roboto-mono-v22-latin-700.woff2" as="font" crossorigin="anonymous"/>
+			<link rel="preload" type="font/woff2" href="static/fonts/roboto-mono-v22-latin-regular.woff2" as="font" crossorigin="anonymous"/>
 			@stylesheets(config)
 			<title>thomas newman</title>
 		</head>
 		<body>
 			{ children... }
+			<script src="static/js/htmx.min.js" hx-preserve="true"></script>
 		</body>
 	</html>
 }
 
 templ backgroundImage() {
-	<picture class="picture-background">
+	<picture class="picture-background" hx-preserve="true">
 		<source
 			media="(min-width: 2400px)"
 			srcSet="/static/images/space-city-2400.webp"
@@ -66,12 +71,12 @@ var layoutConfig = []Stylesheet{
 	{path: "styles/layouts", filename: "header.css"},
 }
 
-templ MainLayout() {
+templ MainLayout(child func() templ.Component) {
 	@document(layoutConfig) {
 		@backgroundImage()
 		@components.Header()
 		<main>
-			{ children... }
+			@child()
 		</main>
 		@components.Footer("thomas newman")
 	}

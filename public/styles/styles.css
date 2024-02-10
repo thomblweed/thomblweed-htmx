@@ -8,7 +8,7 @@
   --clr-dark: hsl(237, 43%, 10%);
   --clr-dark-red: hsl(288, 43%, 9%);
 
-  --ff-primary: 'Roboto Mono', 'Helvetica', 'Arial', 'sans-serif';
+  --ff-primary: "Roboto Mono", "Helvetica", "Arial", "sans-serif";
   --ff-body: var(--ff-primary);
   --ff-heading: var(--ff-primary);
 

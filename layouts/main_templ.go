@@ -67,7 +67,7 @@ func document(config []Stylesheet) templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, minimum-scale=1\"><link rel=\"icon\" type=\"image/x-icon\" href=\"static/favicon/favicon.ico\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, minimum-scale=1\"><meta name=\"description\" content=\"thoms newman, a web developer and frontend software engineer\"><link rel=\"icon\" type=\"image/x-icon\" href=\"static/favicon/favicon.ico\"><link rel=\"preload\" type=\"font/woff2\" href=\"static/fonts/roboto-mono-v22-latin-700.woff2\" as=\"font\" crossorigin=\"anonymous\"><link rel=\"preload\" type=\"font/woff2\" href=\"static/fonts/roboto-mono-v22-latin-regular.woff2\" as=\"font\" crossorigin=\"anonymous\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -92,7 +92,16 @@ func document(config []Stylesheet) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</body></html>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<script src=\"static/js/htmx.min.js\" hx-preserve=\"true\">")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Var4 := ``
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ_7745c5c3_Var4)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</script></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -111,12 +120,12 @@ func backgroundImage() templ.Component {
 			defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var4 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var4 == nil {
-			templ_7745c5c3_Var4 = templ.NopComponent
+		templ_7745c5c3_Var5 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var5 == nil {
+			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<picture class=\"picture-background\"><source media=\"(min-width: 2400px)\" srcSet=\"/static/images/space-city-2400.webp\"> <source media=\"(min-width: 1920px)\" srcSet=\"/static/images/space-city-1920.webp\"> <source media=\"(min-width: 1280px)\" srcSet=\"/static/images/space-city-1440.webp\"> <source media=\"(min-width: 500px)\" srcSet=\"/static/images/space-city-960.webp\"> <img src=\"/static/images/space-city-480.webp\" alt=\"space city\" class=\"image-background\"></picture>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<picture class=\"picture-background\" hx-preserve=\"true\"><source media=\"(min-width: 2400px)\" srcSet=\"/static/images/space-city-2400.webp\"> <source media=\"(min-width: 1920px)\" srcSet=\"/static/images/space-city-1920.webp\"> <source media=\"(min-width: 1280px)\" srcSet=\"/static/images/space-city-1440.webp\"> <source media=\"(min-width: 500px)\" srcSet=\"/static/images/space-city-960.webp\"> <img src=\"/static/images/space-city-480.webp\" alt=\"space city\" class=\"image-background\"></picture>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -136,7 +145,7 @@ var layoutConfig = []Stylesheet{
 	{path: "styles/layouts", filename: "header.css"},
 }
 
-func MainLayout() templ.Component {
+func MainLayout(child func() templ.Component) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -144,12 +153,12 @@ func MainLayout() templ.Component {
 			defer templ.ReleaseBuffer(templ_7745c5c3_Buffer)
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var5 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var5 == nil {
-			templ_7745c5c3_Var5 = templ.NopComponent
+		templ_7745c5c3_Var6 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var6 == nil {
+			templ_7745c5c3_Var6 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Var6 := templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
+		templ_7745c5c3_Var7 := templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 			templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 			if !templ_7745c5c3_IsBuffer {
 				templ_7745c5c3_Buffer = templ.GetBuffer()
@@ -171,7 +180,7 @@ func MainLayout() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templ_7745c5c3_Var5.Render(ctx, templ_7745c5c3_Buffer)
+			templ_7745c5c3_Err = child().Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -188,7 +197,7 @@ func MainLayout() templ.Component {
 			}
 			return templ_7745c5c3_Err
 		})
-		templ_7745c5c3_Err = document(layoutConfig).Render(templ.WithChildren(ctx, templ_7745c5c3_Var6), templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = document(layoutConfig).Render(templ.WithChildren(ctx, templ_7745c5c3_Var7), templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

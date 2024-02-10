@@ -1,0 +1,9 @@
+package components
+
+templ Section(children func() templ.Component) {
+	<section>
+		<div class="inner-section container">
+			@children()
+		</div>
+	</section>
+}
